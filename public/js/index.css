@@ -1,0 +1,19 @@
+.game {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+
+.game-canvas {
+    background-color: aqua;
+    margin: 2%;
+    border-style: solid;   
+}
+.game-info-draw{
+    margin: 2%;
+    height: 90%;
+}
+#game-draw {
+    background-color: white;
+    border-style: solid;
+}

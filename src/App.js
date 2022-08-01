@@ -9,6 +9,7 @@ function App() {
             <HeaderComp />
             <Routes>
                 <Route path = "/" element = {<HomePage />} />  
+                <Route path = "/magic_touch" element = {<MagicTouchGame/>} />
             </Routes>
         </div>
     );

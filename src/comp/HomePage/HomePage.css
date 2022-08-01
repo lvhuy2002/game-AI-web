@@ -1,0 +1,25 @@
+.homepage{
+    background-color:gray;
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top-left-radius: 2%;
+    border-top-right-radius: 2%;
+}
+
+.homepage-BGgame-left{
+    width: 35%;
+    height: 80%;
+    border-radius: 10%;
+    
+}
+
+.homepage-BGgame-right{
+    width: 35%;
+    height: 80%;
+    border-radius: 10%;
+}
+

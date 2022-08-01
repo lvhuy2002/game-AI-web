@@ -16,5 +16,5 @@ function GlobalProvide( {children}) {
         </GlobalContext.Provider>
     )
 }
-
+fasdfashdfui
 export {GlobalContext, GlobalProvide}

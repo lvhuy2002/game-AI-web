@@ -4,14 +4,18 @@ import { Animator } from "../System/Animator.js";
 import { InputHandler } from "../System/InputHandler.js";
 import { Draw } from "../System/Draw.js";
 export class Balloon extends Entity {
+    #game;
+
     #animator;
     #idlingAnimation;
     #popAnimation;
+
     #parent;
     #value;
 
-    constructor(parent, x, y, width, height, spriteSheet) {
+    constructor(game, x, y, width, height, spriteSheet, parent) {
         super(x, y, width, height, spriteSheet);
+        this.#game = game;
         this.#parent = parent;
         this.#value = Math.floor(Math.random() * 9);
 
@@ -20,27 +24,32 @@ export class Balloon extends Entity {
         this.#animator = new Animator(this.#idlingAnimation);
     }
 
-    update(canvasDraw, canvasDrawResize, model, tf) {
-        if (!this.#animator.isPlaying() || this.#parent.isDead()) {
+    update() {
+        // DELETE
+        if (!this.#animator.isPlaying()) {
             this.die();
         }
 
         this.#animator.playAnimation();
 
+        // Alive
         if (!this.isDying()) {
-            this.followParent();   
+            this.#followParent();   
         }
+        ////////////////////////////////
 
-        if (Draw.getInstance(canvasDraw, canvasDrawResize, model, tf).getPredictNumber() === this.#value) {
+        // Dying
+        if (Draw.getInstance(this.#game.canvasDraw, this.#game.canvasDrawResize, this.#game.model, this.#game.tf).getPredictNumber() === this.#value) {
             this.startDying();
         }
 
         if (this.isDying()) {
             this.#animator.switchAnimation(this.#popAnimation);
         }
+        ////////////////////////////////
     }
 
-    followParent() {
+    #followParent() {
         this.setX(this.#parent.getX());
         this.setY(this.#parent.getY() - 64 * 2);
     }

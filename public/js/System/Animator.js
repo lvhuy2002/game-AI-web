@@ -40,10 +40,6 @@ export class Animator {
             this.#frameCounter++;
             this.#timeCounter = 0;
         }
-
-        if (this.#frameCounter >= this.#currentAnimation.getTotalFrames()) {
-            this.#isPlaying = false;
-        }
     }
 
     switchAnimation(animation) {
@@ -56,6 +52,10 @@ export class Animator {
     }
 
     isPlaying() {
+        if (this.#frameCounter >= this.#currentAnimation.getTotalFrames() && !this.#currentAnimation.isLooping()) {
+            this.#isPlaying = false;
+        }
+        
         return this.#isPlaying;
     }
 

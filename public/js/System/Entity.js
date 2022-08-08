@@ -1,4 +1,4 @@
-import { Renderer } from "./Renderer.js";
+import { EntityManager } from "./EntityManager.js";
 
 export class Entity {
     #xPos = 0;
@@ -20,7 +20,7 @@ export class Entity {
       this.#height = height;
       this.#spriteSheet = spriteSheet;
 
-      Renderer.getInstance().addEntity(this);
+      EntityManager.getInstance().addEntity(this);
     }
   
     update() {

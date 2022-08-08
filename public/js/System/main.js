@@ -3,6 +3,7 @@ import { Time } from './Time.js';
 import { InputHandler } from './InputHandler.js';
 import { Renderer } from './Renderer.js';
 import { Draw } from './Draw.js'
+import { EntityManager } from './EntityManager.js';
 window.addEventListener("load", function() {
     const canvas = this.document.getElementById("canvas1");
     canvas.width = 1345;
@@ -33,9 +34,9 @@ window.addEventListener("load", function() {
             Time.getInstance().update();
 
             //////////2//////////
-            game.update(canvasDraw, canvasDrawResize, model, tf);
+            game.update();
+            EntityManager.getInstance().update();
             Renderer.getInstance().render();
-            Renderer.getInstance().update();
 
             //////////3//////////
             Draw.getInstance(canvasDraw, canvasDrawResize, model, tf).update();

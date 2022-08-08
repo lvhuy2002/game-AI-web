@@ -47,7 +47,7 @@ export class Animator {
     }
 
     switchAnimation(animation) {
-        if (animation != this.#currentAnimation) {
+        if (animation !== this.#currentAnimation) {
             this.#currentAnimation = animation;
             this.#frameCounter = 0;
             this.#timeCounter = 0;

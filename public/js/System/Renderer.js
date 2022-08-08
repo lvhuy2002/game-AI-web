@@ -40,7 +40,7 @@ export class Renderer {
     }
 
     renderEntities(entity) {
-        this.#ctx.drawImage(entity.getSpriteSheet(), entity.getXPosOnSpriteSheet(), entity.getYPosOnSpriteSheet(), entity.getWidth(), entity.getHeight(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+        this.#ctx.drawImage(entity.getSpriteSheet(), entity.getXPosOnSpriteSheet(), entity.getYPosOnSpriteSheet(), entity.getWidthOnSpriteSheet(), entity.getHeightOnSpriteSheet(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
     }
 
     addEntity(entity) {

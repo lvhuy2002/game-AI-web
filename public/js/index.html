@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"> </script>
     <title>JavaScript Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="canvas1"></canvas>
-
+    <div>
+        <canvas id="canvas2"></canvas>
+        <canvas id="canvas2-resize" width="28" height="28"></canvas>
+    </div>
+    
+    
     <img id="player" src="./res/Metal knight 2 (64x64).png" alt="player image">
     <img id="bg" src="./res/background.png" alt="bg image">
     <img id="balloon" src="./res/balloon sprite.png" alt="balloon image">
-    
+
+    <script src = "https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <script type="module" src="./System/main.js"></script>
 </body>
 </html>

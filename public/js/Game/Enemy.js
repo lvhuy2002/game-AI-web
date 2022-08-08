@@ -3,12 +3,14 @@ import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
 import { Time } from "../System/Time.js";
 import { Balloon } from "./Balloon.js";
+import { Explosion } from "./Explosion.js";
 
 export class Enemy extends Entity {
     #animator
     #idlingAnimation;
+    #fallingAnimation;
 
-    #speed = 100;
+    #speed = 150;
     #game
 
     #balloon
@@ -18,31 +20,41 @@ export class Enemy extends Entity {
         this.#game = game;
 
         this.#idlingAnimation = new Animation(4, true, 0, 0.12);
+        this.#fallingAnimation = new Animation(4, true, 1, 0.12);
         this.#animator = new Animator(this.#idlingAnimation);
 
-        this.#balloon = new Balloon(this, x, y, 192, 192, document.getElementById('balloon'));
+        this.#balloon = new Balloon(game, x, y, 192, 192, document.getElementById('balloon'), this);
     }
 
-    update(canvasDraw, canvasDrawResize, model, tf) {
-        if (this.getY() > this.#game.height - 192) {
+    update() {
+        // DELETE
+        if (this.getY() > this.#game.height - this.getWidth() - 80 && this.isDying()) {
+            let explosion = new Explosion(this.#game, this.getX() + this.getWidth() / 2, this.getY(), 64, 64, document.getElementById('explosion'));
             this.die();
         }
 
-        this.#balloon.update(canvasDraw, canvasDrawResize, model, tf);
+        this.#balloon.update();
         this.#animator.playAnimation();
+        this.#move();
 
-        this.controlSpeed();
-        this.move();
+        // Dying
+        if (this.#balloon.isDying() || this.#balloon.isDead()) {
+            this.startDying();
+        }
+
+        if (this.isDying()) {
+            this.#animator.switchAnimation(this.#fallingAnimation);
+            this.#acelerate();
+        }
+        /////////////////////////////////
     }
 
-    move() {
+    #move() {
         this.setY(this.getY() + Time.getInstance().getTimeDelta() * this.#speed);
     }
 
-    controlSpeed() {
-        if (this.#balloon.isDying() || this.#balloon.isDead()) {
-            this.#speed += 15;
-        }
+    #acelerate() {
+        this.#speed += 15;
     }
 
     getXPosOnSpriteSheet() {

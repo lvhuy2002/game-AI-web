@@ -39,7 +39,7 @@ export class Balloon extends Entity {
         ////////////////////////////////
 
         // Dying
-        if (Draw.getInstance(this.#game.canvasDraw, this.#game.canvasDrawResize, this.#game.model, this.#game.tf).getPredictNumber() === this.#value) {
+        if (Draw.getExistInstance().getPredictNumber() === this.#value) {
             this.startDying();
         }
 

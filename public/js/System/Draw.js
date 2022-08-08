@@ -88,10 +88,17 @@ export class Draw {
     }
     
     static getInstance(canvas, canvasResize, model, tf) {
-        if (this.instance == null) {
-            this.instance = new Draw(canvas, canvasResize, model, tf);
+        if (this.#instance == null) {
+            this.#instance = new Draw(canvas, canvasResize, model, tf);
         }
-        return this.instance;
+        return this.#instance;
+    }
+
+    static getExistInstance() {
+        if (this.#instance == null) {
+            return null;
+        }
+        return this.#instance;
     }
 
     getPredictNumber() {

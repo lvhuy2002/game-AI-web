@@ -2,7 +2,7 @@ import { Entity } from "../System/Entity.js";
 import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
 import { InputHandler } from "../System/InputHandler.js";
-
+import { Draw } from "../System/Draw.js";
 export class Balloon extends Entity {
     #animator;
     #idlingAnimation;
@@ -20,7 +20,7 @@ export class Balloon extends Entity {
         this.#animator = new Animator(this.#idlingAnimation);
     }
 
-    update() {
+    update(canvasDraw, canvasDrawResize, model, tf) {
         if (!this.#animator.isPlaying() || this.#parent.isDead()) {
             this.die();
         }
@@ -31,7 +31,7 @@ export class Balloon extends Entity {
             this.followParent();   
         }
 
-        if (InputHandler.getInstance().isDown(this.#value.toString())) {
+        if (Draw.getInstance(canvasDraw, canvasDrawResize, model, tf).getPredictNumber() === this.#value) {
             this.startDying();
         }
 

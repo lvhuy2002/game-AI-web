@@ -23,12 +23,12 @@ export class Enemy extends Entity {
         this.#balloon = new Balloon(this, x, y, 192, 192, document.getElementById('balloon'));
     }
 
-    update() {
+    update(canvasDraw, canvasDrawResize, model, tf) {
         if (this.getY() > this.#game.height - 192) {
             this.die();
         }
 
-        this.#balloon.update();
+        this.#balloon.update(canvasDraw, canvasDrawResize, model, tf);
         this.#animator.playAnimation();
 
         this.controlSpeed();

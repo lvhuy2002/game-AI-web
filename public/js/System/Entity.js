@@ -10,7 +10,7 @@ export class Entity {
     #isDying;
 
     constructor(x, y, width, height, spriteSheet) {
-      if (this.constructor == Entity) {
+      if (this.constructor === Entity) {
         throw new Error("Abstract classes can't be instantiated.");
       }
 
@@ -61,6 +61,14 @@ export class Entity {
 
     getYPosOnSpriteSheet() {
       return 0;
+    }
+
+    getWidthOnSpriteSheet() {
+      return this.getWidth();
+    }
+
+    getHeightOnSpriteSheet() {
+      return this.getHeight();
     }
 
     isDead() {

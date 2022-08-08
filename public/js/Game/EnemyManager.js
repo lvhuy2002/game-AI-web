@@ -12,9 +12,9 @@ export class EnemyManager {
         this.#enemies = [];
     }
 
-    update() {
+    update(canvasDraw, canvasDrawResize, model, tf) {
         this.#enemies.forEach(enemy => {
-            enemy.update();
+            enemy.update(canvasDraw, canvasDrawResize, model, tf);
         });
 
         this.deleteDeadEnemies();

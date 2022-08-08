@@ -13,11 +13,24 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-78%, -50%);
+    max-width: 100%;
+    max-height: 90%;
+}
+
+#canvas2 {
+    border: 5px solid black;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(100%, -100%);
     max-width: 100%;
     max-height: 100%;
 }
-
 img {
+    display: none;
+}
+
+#canvas2-resize{
     display: none;
 }

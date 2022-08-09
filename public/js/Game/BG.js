@@ -3,7 +3,7 @@ import { Entity } from "../System/Entity.js";
 export class BackGround extends Entity {
     
     constructor(game, spriteSheet) {
-        super(0, 0, game.width, game.height, spriteSheet);
+        super(game, 0, 0, game.width, game.height, 0, spriteSheet);
     }
 
     update() {

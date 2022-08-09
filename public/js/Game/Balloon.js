@@ -1,11 +1,9 @@
 import { Entity } from "../System/Entity.js";
 import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
-import { InputHandler } from "../System/InputHandler.js";
 import { Draw } from "../System/Draw.js";
+import { Score } from "./Score.js";
 export class Balloon extends Entity {
-    #game;
-
     #animator;
     #idlingAnimation;
     #popAnimation;
@@ -14,8 +12,7 @@ export class Balloon extends Entity {
     #value;
 
     constructor(game, x, y, width, height, spriteSheet, parent) {
-        super(x, y, width, height, spriteSheet);
-        this.#game = game;
+        super(game, x, y, width, height, 0, spriteSheet);
         this.#parent = parent;
         this.#value = Math.floor(Math.random() * 9);
 
@@ -25,10 +22,13 @@ export class Balloon extends Entity {
     }
 
     update() {
+        let beforeDying = this.isDying();
+
         // DELETE
         if (!this.#animator.isPlaying()) {
-            this.die();
+            this.removeInNextUpdate();
         }
+        ////////////////////////////////
 
         this.#animator.playAnimation();
 
@@ -43,6 +43,10 @@ export class Balloon extends Entity {
             this.startDying();
         }
 
+        if (!beforeDying && this.isDying()) {
+            Score.getInstance().increaseScoreByOne();
+        }
+
         if (this.isDying()) {
             this.#animator.switchAnimation(this.#popAnimation);
         }
@@ -51,7 +55,7 @@ export class Balloon extends Entity {
 
     #followParent() {
         this.setX(this.#parent.getX());
-        this.setY(this.#parent.getY() - 64 * 2);
+        this.setY(this.#parent.getY() - 64 * 2 + 5);
     }
 
     getXPosOnSpriteSheet() {

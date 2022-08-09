@@ -1,9 +1,8 @@
 import { Game } from '../Game/Game.js';
 import { Time } from './Time.js';
-import { InputHandler } from './InputHandler.js';
 import { Renderer } from './Renderer.js';
 import { Draw } from './Draw.js'
-import { EntityManager } from './EntityManager.js';
+import { GameObjectManager } from './GameObjectManager.js';
 window.addEventListener("load", function() {
     const canvas = this.document.getElementById("canvas1");
     canvas.width = 1345;
@@ -24,6 +23,7 @@ window.addEventListener("load", function() {
         //////////1//////////
         const renderer = new Renderer(canvas);
         Renderer.setInstance(renderer);
+
     
         //////////2//////////
         const game = new Game(canvas);
@@ -34,8 +34,8 @@ window.addEventListener("load", function() {
             Time.getInstance().update();
 
             //////////2//////////
+            GameObjectManager.getInstance().update();
             game.update();
-            EntityManager.getInstance().update();
             Renderer.getInstance().render();
 
             //////////3//////////

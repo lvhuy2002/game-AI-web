@@ -1,4 +1,5 @@
-import { EntityManager } from "./EntityManager.js";
+import { GameObjectManager } from "./GameObjectManager.js";
+import { Text } from "./Text.js";
 
 export class Renderer {
     #canvas;
@@ -20,14 +21,27 @@ export class Renderer {
     render() {
         this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
 
-        EntityManager.getInstance().getEntities(
-            ).forEach(entity => {
-                this.renderEntities(entity);
-            }
-        )
+        GameObjectManager.getInstance().getLayers().forEach(layer => {
+            layer.forEach(gameObject => {
+                if (gameObject.getSpriteSheet() != null) {
+                    this.renderGameObjects(gameObject);
+                }
+
+                if (gameObject instanceof Text) {
+                    this.renderText(gameObject);
+                }
+            });
+        });
     }
 
-    renderEntities(entity) {
-        this.#ctx.drawImage(entity.getSpriteSheet(), entity.getXPosOnSpriteSheet(), entity.getYPosOnSpriteSheet(), entity.getWidthOnSpriteSheet(), entity.getHeightOnSpriteSheet(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+    renderGameObjects(gameObject) {
+        this.#ctx.drawImage(gameObject.getSpriteSheet(), gameObject.getXPosOnSpriteSheet(), gameObject.getYPosOnSpriteSheet(), gameObject.getWidthOnSpriteSheet(), gameObject.getHeightOnSpriteSheet(), gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
+    }
+
+    renderText(text) {
+        this.#ctx.font = text.getStyle() + ' ' + text.getSize() + 'px ' + text.getFont();
+        this.#ctx.fillStyle = text.getColor();
+        this.#ctx.textAlign = "center";
+        this.#ctx.fillText(text.getValue(), text.getX(), text.getY());
     }
 }

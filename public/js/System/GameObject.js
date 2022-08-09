@@ -21,8 +21,9 @@ export class GameObject {
         this.#layer = layer;
       }
 
-      this.#spriteSheet = spriteSheet;
-      
+      if (spriteSheet != undefined && spriteSheet != null) {
+        this.#spriteSheet = spriteSheet;
+      }
 
       GameObjectManager.getInstance().addGameObject(this);
     }

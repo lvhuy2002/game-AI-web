@@ -8,8 +8,9 @@ export class Entity {
     #spriteSheet;
     #isDead;
     #isDying;
+    #layer = 0;
 
-    constructor(x, y, width, height, spriteSheet) {
+    constructor(x, y, width, height, spriteSheet, layer) {
       if (this.constructor === Entity) {
         throw new Error("Abstract classes can't be instantiated.");
       }
@@ -19,6 +20,10 @@ export class Entity {
       this.#width = width;
       this.#height = height;
       this.#spriteSheet = spriteSheet;
+
+      if (layer != undefined && layer != null) {
+        this.#layer = layer;
+      }
 
       EntityManager.getInstance().addEntity(this);
     }
@@ -53,6 +58,14 @@ export class Entity {
 
     getHeight() {
       return this.#height;
+    }
+
+    setLayerNumber(layer) {
+      this.#layer = layer;
+    }
+
+    getLayerNumber() {
+      return this.#layer;
     }
 
     getXPosOnSpriteSheet() {

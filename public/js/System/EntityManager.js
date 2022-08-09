@@ -1,10 +1,13 @@
 export class EntityManager {
-    #entities = [];
-    #entityCount = 0;
+    #layers = [];
 
     static #instance;
 
     constructor() {
+        let first, second;
+
+        this.#layers = [first = [], second = []];
+        console.log(this.#layers);
     }
 
     static getInstance() {
@@ -15,40 +18,38 @@ export class EntityManager {
     }
 
     update() {
-        this.#entities.forEach(entity => {
-            entity.update();
-        });
-
         this.#removeDeadEntities();
+
+        this.#layers.forEach(layer => {
+            layer.forEach(entity => {
+                entity.update();
+            });
+        });
     }
 
     addEntity(entity) {
-        this.#entities.push(entity);
-        this.#entityCount++;
+        this.#layers[entity.getLayerNumber()].push(entity);
     }
 
-    removeEntity(entity) {
-        let index = this.#entities.indexOf(entity);
+    removeEntityFromLayer(entity, layer) {
+        let index = this.#layers[layer].indexOf(entity);
         if (index > -1) {
-            this.#entities.splice(index, 1);
-            this.#entityCount--;
+            this.#layers[layer].splice(index, 1);
         }
     }
 
-    getEntityCount() {
-        return this.#entityCount;
-    }
-
-    getEntities() {
-        return this.#entities;
+    getLayers() {
+        return this.#layers;
     }
 
     #removeDeadEntities() {
-        for (let i = 0; i < this.#entityCount; i++) {
-            if (this.#entities[i] != null) {
-                if (this.#entities[i].isDead()) {
-                    this.#entities.splice(i, 1);
-                    i--;
+        for (let i = 0; i < this.#layers.length; i++) { 
+            for (let j = 0; j < this.#layers[i].length; j++) {
+                if (this.#layers[i][j] != null) {
+                    if (this.#layers[i][j].isDead()) {
+                        this.#layers[i].splice(j, 1);
+                        j--;
+                    }
                 }
             }
         }

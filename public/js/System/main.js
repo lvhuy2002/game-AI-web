@@ -1,6 +1,5 @@
 import { Game } from '../Game/Game.js';
 import { Time } from './Time.js';
-import { InputHandler } from './InputHandler.js';
 import { Renderer } from './Renderer.js';
 import { Draw } from './Draw.js'
 import { EntityManager } from './EntityManager.js';
@@ -34,8 +33,8 @@ window.addEventListener("load", function() {
             Time.getInstance().update();
 
             //////////2//////////
-            game.update();
             EntityManager.getInstance().update();
+            game.update();
             Renderer.getInstance().render();
 
             //////////3//////////

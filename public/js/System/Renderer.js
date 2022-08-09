@@ -20,11 +20,11 @@ export class Renderer {
     render() {
         this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
 
-        EntityManager.getInstance().getEntities(
-            ).forEach(entity => {
+        EntityManager.getInstance().getLayers().forEach(layer => {
+            layer.forEach(entity => {
                 this.renderEntities(entity);
-            }
-        )
+            });
+        });
     }
 
     renderEntities(entity) {

@@ -16,7 +16,7 @@ export class Enemy extends Entity {
     #balloon
 
     constructor(game, x, y, width, height, spriteSheet) {
-        super(x, y, width, height, spriteSheet);
+        super(x, y, width, height, spriteSheet, 1);
         this.#game = game;
 
         this.#idlingAnimation = new Animation(4, true, 0, 0.12);

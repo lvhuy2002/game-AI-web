@@ -1,7 +1,6 @@
 import { Entity } from "../System/Entity.js";
 import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
-import { InputHandler } from "../System/InputHandler.js";
 import { Draw } from "../System/Draw.js";
 export class Balloon extends Entity {
     #game;
@@ -51,7 +50,7 @@ export class Balloon extends Entity {
 
     #followParent() {
         this.setX(this.#parent.getX());
-        this.setY(this.#parent.getY() - 64 * 2);
+        this.setY(this.#parent.getY() - 64 * 2 + 5);
     }
 
     getXPosOnSpriteSheet() {

@@ -29,7 +29,7 @@ export class Enemy extends Entity {
     update() {
         // DELETE
         if (this.getY() > this.#game.height - this.getWidth() - 80 && this.isDying()) {
-            let explosion = new Explosion(this.#game, this.getX() + this.getWidth() / 2, this.getY(), 64, 64, document.getElementById('explosion'));
+            let explosion = new Explosion(this.#game, this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
             this.die();
         }
 

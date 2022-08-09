@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+.GameTitle {
+  color: white;
+  font-size: 62px;
+}
+
+.GameDescription {
+  color: rgb(141, 137, 170);
+  line-height: 28px;
+  font-size: 17px;
+  text-align: justify;
+  margin-bottom: 12px;
+}
+
+.siteBtn {
+  display: inline-block;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+  min-width: 186px;
+  padding: 20px 30px;
+  border-radius: 0;
+  text-transform: uppercase;
+  color: #081624;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  position: relative;
+  top: 70px;
+  z-index: 10;
+  text-decoration: none;
+  box-shadow: 10px 10px #0c5cac, 0 0 8px rgb(122, 153, 255);
+  transition: all 0.2s ease-in-out;
+}
+
+.siteBtn:hover {
+  background: #ff416c;
+  box-shadow: 10px 10px white;
+  font-size: 24px;
+  padding: 18px 35px;
+  color: white;
+}
+
+.siteBtn img {
+  position: relative;
+  left: 13px;
+  width: auto !important;
+  display: inline-block !important;
+}

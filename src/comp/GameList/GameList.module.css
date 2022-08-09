@@ -1,0 +1,35 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.gameLogo {
+    width: 100%;
+    box-shadow: 0 0 12px rgba(117, 128, 228, 0.6)
+}
+
+.gameTitle {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-top: 18px;
+}
+
+.playBtn {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(175, 175, 175);
+    padding: 15px 20px;
+    border-top: dashed orangered 1px;
+    transition: all 0.3s;
+}
+
+.playBtn:hover {
+    color: white;
+    background: #ff416c;
+}
+
+.feature {
+    color: white;
+    font-size: 28px;;
+}

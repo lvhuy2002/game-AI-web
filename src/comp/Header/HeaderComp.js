@@ -53,6 +53,11 @@ export default function Header() {
               </li>
               <li>
                 <a className="menu-item" href="#">
+                  Games
+                </a>
+              </li>
+              <li>
+                <a className="menu-item" href="#">
                   About us
                 </a>
               </li>
@@ -108,7 +113,7 @@ const HeaderSection = styled.div`
   padding-left: 1vw;
   padding-right: 1vw;
   padding-top: 1vw;
-  width: 100vw;
+  width: 100%;
   background-color: none;
   position: absolute;
 `;

@@ -38,12 +38,13 @@ const HeroItem = styled.div`
   background: url(${slider1});
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: -200px;
   height: auto;
   min-height: 100vh;
 `;
 
 const ItemContainer = styled.div`
-  min-height: 100vh;
+  min-height: 140vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -4,8 +4,6 @@ import { Animator } from "../System/Animator.js";
 import { Draw } from "../System/Draw.js";
 import { Score } from "./Score.js";
 export class Balloon extends Entity {
-    #game;
-
     #animator;
     #idlingAnimation;
     #popAnimation;
@@ -14,8 +12,7 @@ export class Balloon extends Entity {
     #value;
 
     constructor(game, x, y, width, height, spriteSheet, parent) {
-        super(x, y, width, height, spriteSheet);
-        this.#game = game;
+        super(game, x, y, width, height, 0, spriteSheet);
         this.#parent = parent;
         this.#value = Math.floor(Math.random() * 9);
 
@@ -29,7 +26,7 @@ export class Balloon extends Entity {
 
         // DELETE
         if (!this.#animator.isPlaying()) {
-            this.die();
+            this.removeInNextUpdate();
         }
         ////////////////////////////////
 

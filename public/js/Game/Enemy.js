@@ -11,13 +11,11 @@ export class Enemy extends Entity {
     #fallingAnimation;
 
     #speed = 150;
-    #game
 
     #balloon
 
     constructor(game, x, y, width, height, spriteSheet) {
-        super(x, y, width, height, spriteSheet, 1);
-        this.#game = game;
+        super(game, x, y, width, height, 1, spriteSheet);
 
         this.#idlingAnimation = new Animation(4, true, 0, 0.12);
         this.#fallingAnimation = new Animation(4, true, 1, 0.12);
@@ -28,9 +26,9 @@ export class Enemy extends Entity {
 
     update() {
         // DELETE
-        if (this.getY() > this.#game.height - this.getWidth() - 80 && this.isDying()) {
-            let explosion = new Explosion(this.#game, this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
-            this.die();
+        if (this.getY() > this.getGame().height - this.getWidth() - 80 && this.isDying()) {
+            let explosion = new Explosion(this.getGame(), this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
+            this.removeInNextUpdate();
         }
         ////////////////////////////////
 
@@ -39,7 +37,7 @@ export class Enemy extends Entity {
         this.#move();
 
         // Dying
-        if (this.#balloon.isDying() || this.#balloon.isDead()) {
+        if (this.#balloon.isDying() || this.#balloon.canBeRemoved()) {
             this.startDying();
         }
 

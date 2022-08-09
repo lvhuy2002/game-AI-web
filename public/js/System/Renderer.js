@@ -1,4 +1,4 @@
-import { EntityManager } from "./EntityManager.js";
+import { GameObjectManager } from "./GameObjectManager.js";
 
 export class Renderer {
     #canvas;
@@ -20,7 +20,7 @@ export class Renderer {
     render() {
         this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
 
-        EntityManager.getInstance().getLayers().forEach(layer => {
+        GameObjectManager.getInstance().getLayers().forEach(layer => {
             layer.forEach(entity => {
                 this.renderEntities(entity);
             });
@@ -29,5 +29,11 @@ export class Renderer {
 
     renderEntities(entity) {
         this.#ctx.drawImage(entity.getSpriteSheet(), entity.getXPosOnSpriteSheet(), entity.getYPosOnSpriteSheet(), entity.getWidthOnSpriteSheet(), entity.getHeightOnSpriteSheet(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+    }
+
+    renderText(text) {
+        // this.#ctx.fillText(text, this.#canvas.width / 2, this.#canvas.height / 2);
+        ctx.font = '48px serif';
+        ctx.fillText('Hello world', this.#canvas.width / 2, 50);
     }
 }

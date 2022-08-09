@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import {Helmet} from "react-helmet";
 import "./App.css";
 import Header from "./comp/Header/HeaderComp.js";
 import HeroSection from "./comp/HeroSection/HeroSection";
@@ -11,6 +12,11 @@ import MagicTouchGame from "./comp/MagicTouch/MagicTouchGame";
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>AG Gaming</title>
+        <link rel="canonical" href="http://example.com/example" />
+      </Helmet>
       <Header />
       <HeroSection />
       <GameList />

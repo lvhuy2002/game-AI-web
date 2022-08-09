@@ -6,8 +6,8 @@ export class Entity {
     #width = 64;
     #height = 64;
     #spriteSheet;
-    #isDead;
-    #isDying;
+    #isDead = false;
+    #isDying = false;
     #layer = 0;
 
     constructor(x, y, width, height, spriteSheet, layer) {

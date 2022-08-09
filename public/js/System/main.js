@@ -23,6 +23,7 @@ window.addEventListener("load", function() {
         //////////1//////////
         const renderer = new Renderer(canvas);
         Renderer.setInstance(renderer);
+
     
         //////////2//////////
         const game = new Game(canvas);

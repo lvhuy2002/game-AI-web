@@ -32,6 +32,7 @@ export class Enemy extends Entity {
             let explosion = new Explosion(this.#game, this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
             this.die();
         }
+        ////////////////////////////////
 
         this.#balloon.update();
         this.#animator.playAnimation();

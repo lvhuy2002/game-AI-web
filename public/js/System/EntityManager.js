@@ -7,7 +7,6 @@ export class EntityManager {
         let first, second;
 
         this.#layers = [first = [], second = []];
-        console.log(this.#layers);
     }
 
     static getInstance() {

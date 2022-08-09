@@ -2,6 +2,7 @@ import { Entity } from "../System/Entity.js";
 import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
 import { Draw } from "../System/Draw.js";
+import { Score } from "./Score.js";
 export class Balloon extends Entity {
     #game;
 
@@ -24,10 +25,13 @@ export class Balloon extends Entity {
     }
 
     update() {
+        let beforeDying = this.isDying();
+
         // DELETE
         if (!this.#animator.isPlaying()) {
             this.die();
         }
+        ////////////////////////////////
 
         this.#animator.playAnimation();
 
@@ -40,6 +44,10 @@ export class Balloon extends Entity {
         // Dying
         if (Draw.getExistInstance().getPredictNumber() === this.#value) {
             this.startDying();
+        }
+
+        if (!beforeDying && this.isDying()) {
+            Score.getInstance().increaseScoreByOne();
         }
 
         if (this.isDying()) {

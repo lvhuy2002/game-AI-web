@@ -10,6 +10,8 @@ import TeamInfo from "./comp/TeamInfo/TeamInfo";
 import Footer from "./comp/Footer/Footer";
 import HomePage from "./comp/HomePage/HomePage";
 import TowerDefence from "./comp/TowerDefence/TowerDefence";
+import Tutorial from "./comp/TowerDefence/Tutorial";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -31,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/tower_defence" element={<TowerDefence />} />
+          <Route path="/tower_defence_tutorial" element={<Tutorial />} />
         </Routes>
         <Footer />
       </div>

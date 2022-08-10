@@ -11,6 +11,8 @@ export class Balloon extends Entity {
     #parent;
     #value;
 
+    #popSound;
+
     constructor(game, x, y, width, height, spriteSheet, parent) {
         super(game, x, y, width, height, 0, spriteSheet);
         this.#parent = parent;
@@ -19,6 +21,11 @@ export class Balloon extends Entity {
         this.#idlingAnimation = new Animation(1, true, this.#value, 0.12);
         this.#popAnimation = new Animation(9, false, this.#value, 0.06);
         this.#animator = new Animator(this.#idlingAnimation);
+
+        this.#popSound = new Howl({
+            src: ['./res/sounds/clap sound effect.wav'],
+            volume: 0.15
+        });
     }
 
     update() {
@@ -39,7 +46,8 @@ export class Balloon extends Entity {
         ////////////////////////////////
 
         // Dying
-        if (Draw.getExistInstance().getPredictNumber() === this.#value) {
+        if (Draw.getExistInstance().getPredictNumber() === this.#value && this.getY() > -64) {
+            this.#popSound.play();
             this.startDying();
         }
 

@@ -14,6 +14,6 @@ export class BackGround extends Entity {
     }
   
     getHeightOnSpriteSheet() {
-        return 720;
+        return 651;
     }
 }

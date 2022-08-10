@@ -35,6 +35,10 @@ export class EntityManager {
         }
     }
 
+    removeAllEntities() {
+        // this.#entities.splice(0,this.#entities.length);
+        this.#entities = [];
+    }
     getEntityCount() {
         return this.#entityCount;
     }

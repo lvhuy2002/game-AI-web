@@ -17,6 +17,8 @@ export class Draw {
         this.#ctxResize = canvasResize.getContext('2d');
         this.#tf = tf;
         this.#predictNumber = 10;
+        this.#ctx.fillStyle = 'rgb(255, 255, 255)';
+        this.#ctx.fillRect(0, 0, this.#canvas.width, this.#canvas.height);
         window.addEventListener('mousedown', (e) => this.mouseDownEvent())
         window.addEventListener('mouseup', (e) => this.mouseUpEvent())
         window.addEventListener('mousemove', (e) => {this.mouseMoveEvent(e)})

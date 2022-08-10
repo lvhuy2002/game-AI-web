@@ -4,7 +4,7 @@ import { Animator } from "../System/Animator.js";
 import { Time } from "../System/Time.js";
 import { Balloon } from "./Balloon.js";
 import { Explosion } from "./Explosion.js";
-
+import { Losing } from "./Losing.js";
 export class Enemy extends Entity {
     #animator
     #idlingAnimation;
@@ -45,6 +45,10 @@ export class Enemy extends Entity {
         if (this.isDying()) {
             this.#animator.switchAnimation(this.#fallingAnimation);
             this.#acelerate();
+        } else {
+            if (this.getY() >= this.#game.loseHeight) {
+                Losing.getInstance().setLose();
+            }
         }
         /////////////////////////////////
     }

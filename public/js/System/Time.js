@@ -22,4 +22,9 @@ export class Time {
     getTimeDelta() {
         return this.#timeDelta / 1000;
     }
+
+    reset() {
+        this.#lastTime = 0;
+        this.#timeDelta = 0;
+    }
 }

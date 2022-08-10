@@ -1,0 +1,108 @@
+body {
+    padding: 0px;
+    margin: 0%;
+}
+
+@font-face {
+    font-family: my_font;
+    src: url(./res/font/OleoScriptSwashCaps-Bold.ttf);
+}
+
+h1 {
+    font-family: my_font;
+}
+.game{
+    background-image: url('./res/background.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+#canvas {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    position: absolute;
+    width: 15vw;
+    height: 27vh;
+    right: 7%;
+    top: 17%;
+}
+#snap {
+    background-image: url(./res/camera.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 15vw;
+    height: calc(27vh + 3px);
+    right: calc(25% - 5px);
+    top: calc(17% + 1px);
+    cursor: pointer;
+    border-radius: 5px;
+    border-style: solid;
+}
+
+.predict {
+    background-color: black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 15vw;
+    height: calc(27vh + 3px);
+    right: calc(25% - 5px);
+    top: 48%;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+}
+
+.predict>h1 {
+    color:white;
+    font-size: 2vw;
+    font-family: my_font;
+    text-align: center;
+}
+
+.probability {
+    background-color: black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 15vw;
+    height: calc(27vh + 3px);
+    right: calc(7% + 5px);
+    top: 48%;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 4px;
+}
+
+.probability>h1 {
+    color:white;
+    font-size: 2vw;
+    font-family: my_font;
+    text-align: center;
+}
+#canvas2 {
+    display: none;
+}
+
+
+#webcam {
+    position: absolute;
+    width: calc(40vw - 12px);
+    height: 82vh;
+    left: calc(16% + 1px);
+    top: 5%;
+}
+
+#title {
+    position: absolute;
+    font-size: 3vw;
+    color:mistyrose;
+    bottom: 85%;
+    left: 50%;
+}

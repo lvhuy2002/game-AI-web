@@ -1,8 +1,9 @@
 import React, { useState, useContext, Components } from "react";
 import styled from "styled-components";
+import { Link } from "react-scroll";
 import styles from "./HeroSection.module.css";
 import slider1 from "../../img/slider-bg-1.png";
-import arrow from "../../img/icons/double-arrow.png"
+import arrow from "../../img/icons/double-arrow.png";
 
 export default function HeroSection() {
   return (
@@ -16,7 +17,16 @@ export default function HeroSection() {
               you to have a great time when playing this game together with your
               friend or with your family!
             </p>
-            <GoBtn className={styles.siteBtn} href="#">Let's play! <img src={arrow} alt="#"/></GoBtn>
+            <Link
+              to="games"
+              spy={true}
+              smooth={true}
+              className={styles.siteBtn}
+              offset={-180}
+              href="#"
+            >
+              Let's play! <img src={arrow} alt="#" />
+            </Link>
           </ItemContainer>
         </HeroItem>
       </HeroSlider>
@@ -50,6 +60,4 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-const GoBtn = styled.a`
-  
-`;
+const GoBtn = styled.a``;

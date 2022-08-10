@@ -5,6 +5,7 @@ import sideBg from "../../img/razer.jpg";
 import towerDefence from "../../img/background.png";
 import arrow from "../../img/icons/double-arrow.png";
 import { Link } from "react-router-dom";
+import { Link as scroll } from "react-scroll";
 
 export default function GameAbout() {
   return (

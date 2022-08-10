@@ -2,7 +2,6 @@ import React, { useState, useContext, Components } from "react";
 import styled from "styled-components";
 import styles from "./GameList.module.css";
 import { Link, animateScroll as scroll } from "react-scroll";
-import "./icon.css";
 import arrow from "../../img/icons/double-arrow.png";
 import towerDefence from "../../img/tower-defence.png";
 import faceGame from "../../img/face-game.png";

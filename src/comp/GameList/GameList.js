@@ -20,7 +20,7 @@ export default function GameList() {
             ></img>
           </ItemImg>
           <h4 className={styles.gameTitle}>Tower Defence</h4>
-          <a className={styles.playBtn} href="#">
+          <a className={styles.playBtn} href="/tower_defence">
             Play Now! <img style={{ marginLeft: "10px" }} src={arrow} alt="#" />
           </a>
         </GameItem>

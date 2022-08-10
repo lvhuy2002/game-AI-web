@@ -57,7 +57,7 @@ export default function TeamInfo() {
                 Starting from zero, we created 2 games in just 5 days. That
                 shows the relentless efforts of the team members!
               </p>
-              <p>Let's play <a className={styles.gameLink} href="">Tower Defence</a> or <a className={styles.gameLink} href="">Face Game</a>.</p>
+              <p>Let's play <a className={styles.gameLink} href="/tower_defence">Tower Defence</a> or <a className={styles.gameLink} href="">Face Game</a>.</p>
             </div>
             <div className={styles.right}>
               <img src={us4}></img>

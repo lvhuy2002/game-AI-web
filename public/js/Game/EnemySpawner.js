@@ -8,7 +8,7 @@ export class EnemySpawner {
     #defaultSpawnRate = 2.34;
     #defaultEnemySpeed = 105;
     #minSpawnRate = 1;
-    #maxEnemySpeed = 240;
+    #maxEnemySpeed = 250;
 
     #currentSpawnRate;
     #currentEnemySpeed;
@@ -49,13 +49,18 @@ export class EnemySpawner {
     }
 
     #increaseSpawnRateAndSpeedByScore() {
-        if (this.#currentEnemySpeed < this.#maxEnemySpeed && this.#currentSpawnRate > this.#minSpawnRate) {
             if (this.#scoreReachMultiplicationOf10() && !this.#beforescoreReachMultiplicationOf10) {
-                this.#currentSpawnRate -= this.#defaultSpawnRate * (1/5);
-                this.#currentEnemySpeed += this.#defaultEnemySpeed * (1/5);
-                console.log('increased spawn rate and speed');
+                if (this.#currentEnemySpeed < this.#maxEnemySpeed) {
+                    this.#currentEnemySpeed += this.#defaultEnemySpeed * (1/5);
+                    console.log('speed++')
+                }
+
+                if (this.#currentSpawnRate > this.#minSpawnRate) {
+                    this.#currentSpawnRate -= this.#defaultSpawnRate * (1/5);
+                    console.log('spawnrate++')
+                }
             }
-        }
+        
     }
 
     #scoreReachMultiplicationOf10() {

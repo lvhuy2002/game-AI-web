@@ -54,13 +54,16 @@ export class Draw {
     mouseUpEvent() {
         this.#isPainting = false;
         this.#predictNumber = this.predict();
-        //console.log(this.#predictNumber);
+        console.log(this.#predictNumber);
         this.#ctx.fillStyle = 'rgb(255, 255, 255)';
 	    this.#ctx.fillRect(0, 0, this.#canvas.width, this.#canvas.height)
     }
 
     predict(){
         let values = this.getPixelData();
+        if (values === null) {
+            return 10;
+        }
         this.#ctxResize.clearRect(0, 0, this.#canvasResize.width, this.#canvasResize.height)
         let scores = this.#model.predict(values).dataSync();
         return scores.indexOf(Math.max(...scores));
@@ -79,10 +82,19 @@ export class Draw {
         const imgData = this.#ctxResize.getImageData(0, 0, this.#canvasResize.width, this.#canvasResize.height);
     
         let values = [];
-    
+        let isEmpty = true;
         for (let i = 0; i < imgData.data.length; i += 4)
+        {
             values.push(255 - imgData.data[i]);
-        
+        }
+            
+        for(let i = 0; i < values.length; i++) {
+            if (values[i] > 0) {
+                isEmpty = false;
+            }
+        }
+        if (isEmpty) {return null;}
+
         values = this.#tf.reshape(values, [1, 28, 28, 1]);
         return  values;
     }

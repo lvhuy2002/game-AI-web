@@ -9,34 +9,32 @@ import GameAbout from "./comp/GameAbout/GameAbout";
 import TeamInfo from "./comp/TeamInfo/TeamInfo";
 import Footer from "./comp/Footer/Footer";
 import HomePage from "./comp/HomePage/HomePage";
-import MagicTouchGame from "./comp/MagicTouch/MagicTouchGame";
+import TowerDefence from "./comp/TowerDefence/TowerDefence";
 function App() {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
   if (spinner) {
     setTimeout(() => {
       spinner.style.display = "none";
-      setLoading(false)
-    }, 1000)
+      setLoading(false);
+    }, 1000);
   }
+
   return (
-    !loading &&
-    <div className="App">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>AG Gaming</title>
-      </Helmet>
-      <Header />
-      <HeroSection />
-      <GameList />
-      <GameAbout />
-      <TeamInfo />
-      <Footer />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/magic_touch" element={<MagicTouchGame />} />
-      </Routes>
-    </div>
+    !loading && (
+      <div className="App">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>AG Gaming</title>
+        </Helmet>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/tower_defence" element={<TowerDefence />} />
+        </Routes>
+        <Footer />
+      </div>
+    )
   );
 }
 

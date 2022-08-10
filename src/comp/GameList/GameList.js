@@ -6,7 +6,6 @@ import arrow from "../../img/icons/double-arrow.png";
 import towerDefence from "../../img/tower-defence.png";
 import faceGame from "../../img/face-game.png";
 import gameListBg from "../../img/about-img.png";
-import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameList() {
   return (

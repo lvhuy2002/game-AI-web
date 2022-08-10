@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import styles from "./GameAbout.module.css";
 import sideBg from "../../img/razer.jpg";
-import towerDefence from "../../img/game-background/menu/background.png";
+import towerDefence from "../../img/background.png";
 import arrow from "../../img/icons/double-arrow.png";
+import { Link } from "react-router-dom";
+import { Link as scroll } from "react-scroll";
 
 export default function GameAbout() {
   return (
@@ -35,9 +37,9 @@ export default function GameAbout() {
                 Play button now!!!
               </p>
 
-              <a className={styles.siteBtn} href="">
+              <Link to={"/tower_defence"} className={styles.siteBtn}>
                 Play!<img src={arrow}></img>
-              </a>
+              </Link>
             </AboutLeft>
             <AboutRight>
               <img

@@ -6,6 +6,7 @@ import arrow from "../../img/icons/double-arrow.png";
 import towerDefence from "../../img/tower-defence.png";
 import faceGame from "../../img/face-game.png";
 import gameListBg from "../../img/about-img.png";
+import { Link as LinkR } from "react-router-dom";
 
 export default function GameList() {
   return (
@@ -20,9 +21,9 @@ export default function GameList() {
             ></img>
           </ItemImg>
           <h4 className={styles.gameTitle}>Tower Defence</h4>
-          <a className={styles.playBtn} href="/tower_defence">
+          <LinkR className={styles.playBtn} to="/tower_defence">
             Play Now! <img style={{ marginLeft: "10px" }} src={arrow} alt="#" />
-          </a>
+          </LinkR>
         </GameItem>
 
         <GameItem>
@@ -34,9 +35,9 @@ export default function GameList() {
             ></img>
           </ItemImg>
           <h4 className={styles.gameTitle}>Face Game</h4>
-          <a className={styles.playBtn} href="#">
+          <LinkR className={styles.playBtn} to="/predict_face_expression">
             Play Now! <img style={{ marginLeft: "10px" }} src={arrow} alt="#" />
-          </a>
+          </LinkR>
         </GameItem>
       </GameListWrapper>
       <AboutGame>

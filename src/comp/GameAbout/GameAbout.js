@@ -90,9 +90,9 @@ export default function GameAbout() {
                 below!
               </p>
 
-              <a className={styles.siteBtn} href="">
+              <Link to={"/predict_face_expression"}className={styles.siteBtn} >
                 Go!<img src={arrow}></img>
-              </a>
+              </Link>
             </AboutLeft>
           </AboutContainer>
         </AboutWrapperBot>

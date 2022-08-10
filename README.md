@@ -14,7 +14,7 @@ AG Gaming is a project founded by a team of 5 members who are students of the Un
 
 ## 2. Before you continue❗
 
-This project use ReactJS and NodeJS for the web, TensorFlowJS for the model.
+This project use ReactJS for the front-end, NodeJS and MongoDB for the back-end, TensorFlowJS for the model.
 Make sure you have installed the lastest version of ReactJS and NodeJS.
 
 ### How to install and play⁉️

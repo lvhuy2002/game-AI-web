@@ -1,4 +1,4 @@
-# AG Gaming
+# AG Gaming 🎮
 
 ## 1. About this project 🚀🚀🚀
 

@@ -36,6 +36,9 @@ export default function GameAbout() {
                 Want to relax? What are you waiting for without pressing the
                 Play button now!!!
               </p>
+              <p style={{color: "white", fontSize: "20px"}}>
+                Don't know how to play? <Link to={"/tower_defence_tutorial"} className={styles.tutorial}>Tutorial Here...!</Link>
+              </p>
 
               <Link to={"/tower_defence"} className={styles.siteBtn}>
                 Play!<img src={arrow}></img>
@@ -148,5 +151,10 @@ const AboutRight = styled.div`
   padding-top: 130px;
   img {
     width: 500px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  img:hover {
+    width: 520px;
   }
 `;

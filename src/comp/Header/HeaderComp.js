@@ -48,10 +48,8 @@ export default function Header() {
           <nav className="navbar">
             <ul className="main-menu primary-menu">
               <li>
-                <a className="menu-item" href="#">
-                  <Link to="header" spy={true} smooth={true}>
-                    Home
-                  </Link>
+                <a className="menu-item" href="/">
+                  Home
                 </a>
               </li>
               <li>

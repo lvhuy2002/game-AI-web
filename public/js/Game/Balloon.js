@@ -13,6 +13,8 @@ export class Balloon extends Entity {
 
     #popSound;
 
+    #beforeDying = false;
+
     constructor(game, x, y, width, height, spriteSheet, parent) {
         super(game, x, y, width, height, 0, spriteSheet);
         this.#parent = parent;
@@ -29,10 +31,12 @@ export class Balloon extends Entity {
     }
 
     update() {
-        let beforeDying = this.isDying();
-
         // DELETE
         if (!this.#animator.isPlaying()) {
+            this.removeInNextUpdate();
+        }
+
+        if (this.getY() > this.getGame().height + 7) {
             this.removeInNextUpdate();
         }
         ////////////////////////////////
@@ -47,11 +51,11 @@ export class Balloon extends Entity {
 
         // Dying
         if (Draw.getExistInstance().getPredictNumber() === this.#value && this.getY() > -64) {
-            this.#popSound.play();
             this.startDying();
         }
 
-        if (!beforeDying && this.isDying()) {
+        if (!this.#beforeDying && this.isDying()) {
+            this.#popSound.play();
             Score.getInstance().increaseScoreByOne();
         }
 
@@ -59,6 +63,8 @@ export class Balloon extends Entity {
             this.#animator.switchAnimation(this.#popAnimation);
         }
         ////////////////////////////////
+
+        this.#beforeDying = this.isDying();
     }
 
     #followParent() {

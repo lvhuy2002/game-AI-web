@@ -49,6 +49,7 @@ window.addEventListener("load", function() {
         isReplay = true;
     }
 
+    //Loading fectch
     let isFetch = false;
     const PostScore = (data) => {
         fetch('https://highscore-api.herokuapp.com/api/scores', {
@@ -62,6 +63,28 @@ window.addEventListener("load", function() {
             .then(res => res.json())
     }
 
+    //Loading sound 
+    const sound = document.querySelector('.sound-button');
+    const mute = document.querySelector('.mute-button');
+    mute.style.display = "none";
+    new Howl({
+        src: ['./res/sounds/Magic Touch  Main Theme.mp3'],
+        volume: 0.15,
+        loop: true
+    }).play();
+
+    sound.onclick = function() {
+        mute.style.display = 'block';
+        sound.style.display = 'none';
+        Howler.volume(0);
+    }
+    
+    mute.onclick = function() {
+        mute.style.display = 'none';
+        sound.style.display = 'block';
+        Howler.volume(1);
+    }
+    
     async function init() {
         let model;
         let scoreString;
@@ -76,11 +99,6 @@ window.addEventListener("load", function() {
         
         //////////2//////////
         let game = new Game(canvas);
-        new Howl({
-            src: ['./res/sounds/Magic Touch  Main Theme.mp3'],
-            volume: 0.15,
-            loop: true
-        }).play();
 
         function animate() {
             if (gameHtml.style.display === 'none' || isReplay === true) {

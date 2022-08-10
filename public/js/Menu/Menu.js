@@ -1,10 +1,7 @@
 
 const highScoreBtn = document.querySelector('.button-highScore');
-const tutorial = document.querySelector('.button-tutorial');
 const homeButtonLoseBoard = document.querySelector('#home-button-lose-board');
 const start = document.querySelector('.button-start');
-const sound = document.querySelector('.sound-button');
-const mute = document.querySelector('.mute-button');
 const highScore = document.querySelector('.high-score');
 const back = document.querySelector('.button-back');
 const top1 = document.querySelector('.top1');
@@ -13,8 +10,6 @@ const top3 = document.querySelector('.top3');
 const top4 = document.querySelector('.top4');
 const top5 = document.querySelector('.top5');
 
-
-mute.style.display = "none";
 highScore.style.display = "none";
 
 start.onclick = function() {
@@ -26,16 +21,6 @@ start.onclick = function() {
 homeButtonLoseBoard.onclick = function() {
     document.getElementsByClassName('menu')[0].style.display = 'block';
     document.getElementsByClassName('game')[0].style.display = 'none';
-}
-
-sound.onclick = function() {
-    mute.style.display = 'block';
-    sound.style.display = 'none';
-}
-
-mute.onclick = function() {
-    mute.style.display = 'none';
-    sound.style.display = 'block';
 }
 
 highScoreBtn.onclick = function() {

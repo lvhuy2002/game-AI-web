@@ -76,6 +76,11 @@ window.addEventListener("load", function() {
         
         //////////2//////////
         let game = new Game(canvas);
+        new Howl({
+            src: ['./res/sounds/Magic Touch  Main Theme.mp3'],
+            volume: 0.15,
+            loop: true
+        }).play();
 
         function animate() {
             if (gameHtml.style.display === 'none' || isReplay === true) {

@@ -11,24 +11,34 @@ export class Enemy extends Entity {
     #idlingAnimation;
     #fallingAnimation;
 
-    #speed = 150;
+    #speed;
 
     #balloon
 
-    constructor(game, x, y, width, height, spriteSheet) {
+    #explosionSound;
+
+    constructor(game, x, y, width, height, spriteSheet, speed) {
         super(game, x, y, width, height, 1, spriteSheet);
+
+        this.#speed = speed;
 
         this.#idlingAnimation = new Animation(4, true, 0, 0.12);
         this.#fallingAnimation = new Animation(4, true, 1, 0.12);
         this.#animator = new Animator(this.#idlingAnimation);
 
         this.#balloon = new Balloon(game, x, y, 192, 192, document.getElementById('balloon'), this);
+
+        this.#explosionSound = new Howl({
+            src: ['./res/sounds/sfx_exp_short_soft1.wav'],
+            volume: 0.5
+        });
     }
 
     update() {
         // DELETE
         if (this.getY() > this.getGame().height - this.getWidth() + 7 && this.isDying()) {
             let explosion = new Explosion(this.getGame(), this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
+            this.#explosionSound.play();
             this.removeInNextUpdate();
         }
         ////////////////////////////////

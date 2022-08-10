@@ -3,14 +3,11 @@ import { useState } from "react";
 import "./App.css";
 import { Helmet } from "react-helmet";
 import Header from "./comp/Header/HeaderComp.js";
-import HeroSection from "./comp/HeroSection/HeroSection";
-import GameList from "./comp/GameList/GameList";
-import GameAbout from "./comp/GameAbout/GameAbout";
-import TeamInfo from "./comp/TeamInfo/TeamInfo";
 import Footer from "./comp/Footer/Footer";
 import HomePage from "./comp/HomePage/HomePage";
 import TowerDefence from "./comp/TowerDefence/TowerDefence";
 import Tutorial from "./comp/TowerDefence/Tutorial";
+import PredictFaceExpression from "./comp/PredictFaceExpression/PredictFaceExpression";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,6 +31,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/tower_defence" element={<TowerDefence />} />
           <Route path="/tower_defence_tutorial" element={<Tutorial />} />
+          <Route path="/precdict_face_expression" element={<PredictFaceExpression/>} />
         </Routes>
         <Footer />
       </div>

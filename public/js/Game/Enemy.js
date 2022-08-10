@@ -3,46 +3,63 @@ import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
 import { Time } from "../System/Time.js";
 import { Balloon } from "./Balloon.js";
+import { Explosion } from "./Explosion.js";
+import { Losing } from '../Game/Losing.js';
 
 export class Enemy extends Entity {
     #animator
     #idlingAnimation;
+    #fallingAnimation;
 
-    #speed = 100;
-    #game
+    #speed = 150;
 
     #balloon
 
     constructor(game, x, y, width, height, spriteSheet) {
-        super(x, y, width, height, spriteSheet);
-        this.#game = game;
+        super(game, x, y, width, height, 1, spriteSheet);
 
         this.#idlingAnimation = new Animation(4, true, 0, 0.12);
+        this.#fallingAnimation = new Animation(4, true, 1, 0.12);
         this.#animator = new Animator(this.#idlingAnimation);
 
-        this.#balloon = new Balloon(this, x, y, 192, 192, document.getElementById('balloon'));
+        this.#balloon = new Balloon(game, x, y, 192, 192, document.getElementById('balloon'), this);
     }
 
     update() {
-        if (this.getY() > this.#game.height - 192) {
-            this.die();
+        // DELETE
+        if (this.getY() > this.getGame().height - this.getWidth() + 7 && this.isDying()) {
+            let explosion = new Explosion(this.getGame(), this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
+            this.removeInNextUpdate();
         }
+        ////////////////////////////////
 
         this.#balloon.update();
         this.#animator.playAnimation();
+        this.#move();
 
-        this.controlSpeed();
-        this.move();
+        // Alive
+        if (this.getY() > this.getGame().height - this.getWidth() + 7 && !this.isDying()) {
+            Losing.getInstance().setLose();
+        }
+
+        // Dying
+        if (this.#balloon.isDying() || this.#balloon.canBeRemoved()) {
+            this.startDying();
+        }
+
+        if (this.isDying()) {
+            this.#animator.switchAnimation(this.#fallingAnimation);
+            this.#acelerate();
+        }
+        /////////////////////////////////
     }
 
-    move() {
+    #move() {
         this.setY(this.getY() + Time.getInstance().getTimeDelta() * this.#speed);
     }
 
-    controlSpeed() {
-        if (this.#balloon.isDying() || this.#balloon.isDead()) {
-            this.#speed += 15;
-        }
+    #acelerate() {
+        this.#speed += 15;
     }
 
     getXPosOnSpriteSheet() {

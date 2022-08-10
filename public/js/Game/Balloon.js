@@ -1,17 +1,18 @@
 import { Entity } from "../System/Entity.js";
 import { Animation } from "../System/Animation.js";
 import { Animator } from "../System/Animator.js";
-import { InputHandler } from "../System/InputHandler.js";
-
+import { Draw } from "../System/Draw.js";
+import { Score } from "./Score.js";
 export class Balloon extends Entity {
     #animator;
     #idlingAnimation;
     #popAnimation;
+
     #parent;
     #value;
 
-    constructor(parent, x, y, width, height, spriteSheet) {
-        super(x, y, width, height, spriteSheet);
+    constructor(game, x, y, width, height, spriteSheet, parent) {
+        super(game, x, y, width, height, 0, spriteSheet);
         this.#parent = parent;
         this.#value = Math.floor(Math.random() * 9);
 
@@ -21,28 +22,40 @@ export class Balloon extends Entity {
     }
 
     update() {
-        if (!this.#animator.isPlaying() || this.#parent.isDead()) {
-            this.die();
+        let beforeDying = this.isDying();
+
+        // DELETE
+        if (!this.#animator.isPlaying()) {
+            this.removeInNextUpdate();
         }
+        ////////////////////////////////
 
         this.#animator.playAnimation();
 
+        // Alive
         if (!this.isDying()) {
-            this.followParent();   
+            this.#followParent();   
+        }
+        ////////////////////////////////
+
+        // Dying
+        if (Draw.getExistInstance().getPredictNumber() === this.#value) {
+            this.startDying();
         }
 
-        if (InputHandler.getInstance().isDown(this.#value.toString())) {
-            this.startDying();
+        if (!beforeDying && this.isDying()) {
+            Score.getInstance().increaseScoreByOne();
         }
 
         if (this.isDying()) {
             this.#animator.switchAnimation(this.#popAnimation);
         }
+        ////////////////////////////////
     }
 
-    followParent() {
+    #followParent() {
         this.setX(this.#parent.getX());
-        this.setY(this.#parent.getY() - 64 * 2);
+        this.setY(this.#parent.getY() - 64 * 2 + 5);
     }
 
     getXPosOnSpriteSheet() {

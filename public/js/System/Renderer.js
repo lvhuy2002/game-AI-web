@@ -1,7 +1,9 @@
+import { GameObjectManager } from "./GameObjectManager.js";
+import { Text } from "./Text.js";
+
 export class Renderer {
     #canvas;
     #ctx;
-    #entities = [];
     static #instance;
 
     constructor(canvas) {
@@ -16,34 +18,30 @@ export class Renderer {
         this.#instance = renderer;
     }
 
-    update() {
-        this.deleteDeadEntities();
-    }
-
-    deleteDeadEntities() {
-        let length = this.#entities.length;
-        for (let i = 0; i < length; i++) {
-            if (this.#entities[i] != null) {
-                if (this.#entities[i].isDead()) {
-                    this.#entities.splice(i, 1);
-                    i--;
-                }
-            }
-        }
-    }
-
     render() {
         this.#ctx.clearRect(0, 0, this.#canvas.width, this.#canvas.height);
-        this.#entities.forEach(entity => {
-            this.renderEntities(entity);
+
+        GameObjectManager.getInstance().getLayers().forEach(layer => {
+            layer.forEach(gameObject => {
+                if (gameObject.getSpriteSheet() != null) {
+                    this.renderGameObjects(gameObject);
+                }
+
+                if (gameObject instanceof Text) {
+                    this.renderText(gameObject);
+                }
+            });
         });
     }
 
-    renderEntities(entity) {
-        this.#ctx.drawImage(entity.getSpriteSheet(), entity.getXPosOnSpriteSheet(), entity.getYPosOnSpriteSheet(), entity.getWidth(), entity.getHeight(), entity.getX(), entity.getY(), entity.getWidth(), entity.getHeight());
+    renderGameObjects(gameObject) {
+        this.#ctx.drawImage(gameObject.getSpriteSheet(), gameObject.getXPosOnSpriteSheet(), gameObject.getYPosOnSpriteSheet(), gameObject.getWidthOnSpriteSheet(), gameObject.getHeightOnSpriteSheet(), gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
     }
 
-    addEntity(entity) {
-        this.#entities.push(entity);
+    renderText(text) {
+        this.#ctx.font = text.getStyle() + ' ' + text.getSize() + 'px ' + text.getFont();
+        this.#ctx.fillStyle = text.getColor();
+        this.#ctx.textAlign = "center";
+        this.#ctx.fillText(text.getValue(), text.getX(), text.getY());
     }
 }

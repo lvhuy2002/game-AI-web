@@ -4,6 +4,7 @@ import { Animator } from "../System/Animator.js";
 import { Time } from "../System/Time.js";
 import { Balloon } from "./Balloon.js";
 import { Explosion } from "./Explosion.js";
+import { Losing } from '../Game/Losing.js';
 
 export class Enemy extends Entity {
     #animator
@@ -26,7 +27,7 @@ export class Enemy extends Entity {
 
     update() {
         // DELETE
-        if (this.getY() > this.getGame().height - this.getWidth() - 80 && this.isDying()) {
+        if (this.getY() > this.getGame().height - this.getWidth() + 7 && this.isDying()) {
             let explosion = new Explosion(this.getGame(), this.getX(), this.getY(), 192, 192, document.getElementById('explosion'));
             this.removeInNextUpdate();
         }
@@ -35,6 +36,11 @@ export class Enemy extends Entity {
         this.#balloon.update();
         this.#animator.playAnimation();
         this.#move();
+
+        // Alive
+        if (this.getY() > this.getGame().height - this.getWidth() + 7 && !this.isDying()) {
+            Losing.getInstance().setLose();
+        }
 
         // Dying
         if (this.#balloon.isDying() || this.#balloon.canBeRemoved()) {

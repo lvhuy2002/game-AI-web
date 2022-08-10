@@ -37,6 +37,12 @@ export class GameObjectManager {
         }
     }
 
+    removeAllGameObjects() {
+        let first, second;
+
+        this.#layers = [first = [], second = []];
+    }
+
     getLayers() {
         return this.#layers;
     }

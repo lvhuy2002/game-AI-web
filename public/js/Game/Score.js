@@ -21,4 +21,8 @@ export class Score {
     getScore() {
         return this.#score;
     }
+
+    resetScore() {
+        this.#score = 0;
+    }
 }

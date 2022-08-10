@@ -10,7 +10,7 @@ root.render(
   <React.StrictMode>
       <GlobalProvide>
           <BrowserRouter>
-              <App />
+              <App style = {{width: "100vw"}} />
           </BrowserRouter>
       </GlobalProvide> 
   </React.StrictMode>

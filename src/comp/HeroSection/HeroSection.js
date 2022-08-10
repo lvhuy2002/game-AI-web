@@ -2,7 +2,6 @@ import React, { useState, useContext, Components } from "react";
 import styled from "styled-components";
 import styles from "./HeroSection.module.css";
 import slider1 from "../../img/slider-bg-1.png";
-import slider2 from "../../img/slider-bg-2.jpg";
 import arrow from "../../img/icons/double-arrow.png"
 
 export default function HeroSection() {

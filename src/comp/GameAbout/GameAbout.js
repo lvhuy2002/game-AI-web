@@ -9,7 +9,7 @@ export default function GameAbout() {
   return (
     <GameAboutSection>
       <GameAboutWrapper>
-        <AboutWrapper>
+        <AboutWrapper id="towerDefence">
           <AboutContainer>
             <AboutLeft>
               <h2 className={styles.GameTitle}>Tower Defence</h2>
@@ -23,15 +23,16 @@ export default function GameAbout() {
                 ENEMIES IS HERE, SAVE YOUR LAND!!!
               </h3>
               <p className={styles.GameDescription}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi iusto, fuga consequuntur laudantium porro suscipit
-                minima, delectus commodi possimus animi nesciunt neque hic
-                fugiat. Alias sequi consectetur voluptate voluptatum quaerat.
+                Created by a team of 5 people. Tower Defense uses Machine
+                Learning to enhance the player experience. At the same time
+                Machine Learning is the heart of the game. Inspired by the game
+                Magic Touch, we developed Tower Defense with its own graphic
+                style and created a masterpiece.
               </p>
 
               <p className={styles.GameDescription}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi iusto, fuga consequuntur laudantium
+                Want to relax? What are you waiting for without pressing the
+                Play button now!!!
               </p>
 
               <a className={styles.siteBtn} href="">
@@ -50,8 +51,8 @@ export default function GameAbout() {
             </AboutRight>
           </AboutContainer>
         </AboutWrapper>
-        <AboutWrapperBot>
-          <AboutContainer style={{marginLeft: "90px"}}>
+        <AboutWrapperBot id="faceGame">
+          <AboutContainer style={{ marginLeft: "90px" }}>
             <AboutRight>
               <img
                 style={{
@@ -74,15 +75,14 @@ export default function GameAbout() {
                 ENEMIES IS HERE, SAVE YOUR LAND!!!
               </h3>
               <p className={styles.GameDescription}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi iusto, fuga consequuntur laudantium porro suscipit
-                minima, delectus commodi possimus animi nesciunt neque hic
-                fugiat. Alias sequi consectetur voluptate voluptatum quaerat.
+                Inspired by Face Dance Challenge from 2017, we created Face Game
+                with its own style. The heart of the game is Machine Learning
+                technology that recognizes the player's face.
               </p>
 
               <p className={styles.GameDescription}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi iusto, fuga consequuntur laudantium
+                Want a challenge but no less funny? The Go button is right
+                below!
               </p>
 
               <a className={styles.siteBtn} href="">

@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../../GlobalState/GlobalContext";
 import styled from "styled-components";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./Header.css";
 import logo from "../../img/logo.png";
-import { Link } from "react-router-dom";
+import { Link as router } from "react-router-dom";
 
 export default function Header() {
   const GlobalState = useContext(GlobalContext);
   return (
-    <HeaderSection>
+    <HeaderSection id="header">
       <HeaderWrapper>
         <HeaderSocial>
           <p
@@ -48,33 +49,39 @@ export default function Header() {
             <ul className="main-menu primary-menu">
               <li>
                 <a className="menu-item" href="#">
-                  Home
+                  <Link to="header" spy={true} smooth={true}>
+                    Home
+                  </Link>
                 </a>
               </li>
               <li>
                 <a className="menu-item" href="#">
-                  Games
+                  <Link to="games" spy={true} smooth={true} offset={-180}>
+                    Games
+                  </Link>
                 </a>
               </li>
               <li>
                 <a className="menu-item" href="#">
-                  About us
+                  <Link to="aboutus" spy={true} smooth={true} offset={0}>
+                    About us
+                  </Link>
                 </a>
               </li>
+
               <li>
                 <a className="menu-item" href="#">
-                  Reviews
-                </a>
-              </li>
-              <li>
-                <a className="menu-item" href="#">
-                  Contact
+                  <Link to="footer" spy={true} smooth={true} offset={-180}>
+                    Contact
+                  </Link>
                 </a>
               </li>
             </ul>
           </nav>
-          <div className="user-panel">
-            <a href="#">Login</a> / <a href="#">Register</a>
+          <div className="user-panel" style={{ cursor: "pointer" }}>
+            <Link to="games" smooth={true} spy={true} offset={200}>
+              Join with us!
+            </Link>
           </div>
         </HeaderMenu>
       </HeaderWrapper>

@@ -25,9 +25,35 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+      @keyframes fadeOut {
+        80% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div
+      style="
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #09111F;
+        animation: fadeOut 1.2s ease-in-out;
+      "
+      id="spinner"
+      class="loader-container"
+    >
+      <img style="width: 500px" src="preloader.gif" />
+    </div>
     <div id="root"></div>
     <!--
       This HTML file is a template.

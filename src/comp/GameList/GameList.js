@@ -1,15 +1,17 @@
 import React, { useState, useContext, Components } from "react";
 import styled from "styled-components";
 import styles from "./GameList.module.css";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./icon.css";
 import arrow from "../../img/icons/double-arrow.png";
 import towerDefence from "../../img/tower-defence.png";
 import faceGame from "../../img/face-game.png";
 import gameListBg from "../../img/about-img.png";
+import { faExternalLink } from "@fortawesome/free-solid-svg-icons";
 
 export default function GameList() {
   return (
-    <GameListSection>
+    <GameListSection id="games">
       <GameListWrapper>
         <GameItem>
           <ItemImg>
@@ -49,12 +51,13 @@ export default function GameList() {
             was born for you!
           </h2>
           <Description>
-            Lorem ipsum dolor sit, amet consectetur adipis ic ing elit.
-            Distinctio architecto nobis totam odio aliquam repellat quam rem
-            harum alias animi ducimus quibusdam, sint placeat
+            Tower defense is a game for everyone. Those looking for a moment of
+            relaxation after stressful work or study.
           </Description>
           <MoreBtn href="">
-            More! <img style={{ paddingLeft: "8px" }} src={arrow} />
+            <Link to="towerDefence" spy={true} smooth={true}>
+              More! <img style={{ paddingLeft: "8px" }} src={arrow} />
+            </Link>
           </MoreBtn>
         </AboutGameLeft>
         <AboutGameRight>
@@ -65,12 +68,14 @@ export default function GameList() {
             </strong>
           </h2>
           <Description>
-            Lorem ipsum dolor sit, amet consectetur adipis icing elit.
-            Distinctio architecto nobis totam odio aliquam repellat quam rem
-            harum alias animi ducimus quibusdam, sint placeat
+            Face Game is a highly entertaining game. Those who want to have a
+            funny experience when playing games, or playing with friends, Face
+            Game is the best choice for you.
           </Description>
           <MoreBtn href="">
-            More! <img style={{ paddingLeft: "8px" }} src={arrow} />
+            <Link to="faceGame" spy={true} smooth={true}>
+              More! <img style={{ paddingLeft: "8px" }} src={arrow} />
+            </Link>
           </MoreBtn>
         </AboutGameRight>
       </AboutGame>
@@ -142,8 +147,6 @@ const MoreBtn = styled.a`
   font-size: 20px;
   font-weight: 700;
   font-style: italic;
-  min-width: 186px;
-  padding: 20px 30px;
   border-radius: 0;
   text-transform: uppercase;
   color: white;
@@ -155,10 +158,16 @@ const MoreBtn = styled.a`
   z-index: 10;
   text-decoration: none;
   margin-left: 20px;
-  transition: all 0.2s ease-in;
 
-  :hover {
+  a {
+    min-width: 186px;
+    padding: 20px 30px;
+    transition: all 0.2s ease-in;
+  }
+
+  a:hover {
     font-size: 22px;
+    padding: 20px 30px;
     color: orangered;
     border: 1px solid orangered;
   }

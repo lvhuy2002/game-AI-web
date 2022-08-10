@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <FooterSection>
+    <FooterSection id="footer">
       <FooterWrapper>
         <FooterTop>
           <Container>
@@ -18,8 +18,8 @@ export default function Footer() {
                   margin: " 25px 0",
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reiciendis commodi ut illum. Cumque, unde suscipit error!
+                With fun of making games. We are a team of 5 people to making
+                games that are easily playable on the web.
               </p>
               <a style={{ margin: "0" }} className={styles.socialIcon} href="#">
                 <i className="fa fa-pinterest"></i>
@@ -50,14 +50,16 @@ export default function Footer() {
               ></input>
               <button className={styles.btn}>Subscribe</button>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi accusamus labore recusandae! Quia sint consectetur
-                explicabo.
+                Subscribe to receive the latest news and games!
               </p>
             </Subscribe>
           </Container>
         </FooterTop>
-        <FooterBottom><h3>Copyright © <a href="/">AG-Gaming</a> - 2020. All Rights Reserved</h3></FooterBottom>
+        <FooterBottom>
+          <h3>
+            Copyright © <a href="/">AG-Gaming</a> - 2022. All Rights Reserved
+          </h3>
+        </FooterBottom>
       </FooterWrapper>
     </FooterSection>
   );
@@ -74,23 +76,23 @@ const FooterTop = styled.div`
 `;
 
 const FooterBottom = styled.div`
-	width: 100%;
-	height: 80px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: #0a1e33;
-	h3 {
-		font-family: 'Montserrat';
-		font-weight: 300;
-		color: #ababab;
-		font-size: 16px;
-	}
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0a1e33;
+  h3 {
+    font-family: "Montserrat";
+    font-weight: 300;
+    color: #ababab;
+    font-size: 16px;
+  }
 
-	a {
-		text-decoration: none;
-		color: orangered;
-	}
+  a {
+    text-decoration: none;
+    color: orangered;
+  }
 `;
 
 const Container = styled.div`
@@ -118,12 +120,12 @@ const PlayGames = styled.div`
     font-family: "Montserrat";
     font-weight: light;
     line-height: 30px;
-		transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
-	a:hover {
-		color: orangered;
-	}
+  a:hover {
+    color: orangered;
+  }
 
   h2 {
     font-family: "Montserrat";
@@ -152,7 +154,7 @@ const Subscribe = styled.div`
     caret-color: white;
   }
 
-	p {
-		color: #ababab;
-	}
+  p {
+    color: #ababab;
+  }
 `;

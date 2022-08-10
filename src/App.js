@@ -1,27 +1,36 @@
 import { Routes, Route } from "react-router-dom";
-import {Helmet} from "react-helmet";
+import { useState } from "react";
 import "./App.css";
+import { Helmet } from "react-helmet";
 import Header from "./comp/Header/HeaderComp.js";
 import HeroSection from "./comp/HeroSection/HeroSection";
-import HomePage from "./comp/HomePage/HomePage";
 import GameList from "./comp/GameList/GameList";
-import TeamInfo from "./comp/TeamInfo/TeamInfo";
 import GameAbout from "./comp/GameAbout/GameAbout";
+import TeamInfo from "./comp/TeamInfo/TeamInfo";
 import Footer from "./comp/Footer/Footer";
+import HomePage from "./comp/HomePage/HomePage";
 import MagicTouchGame from "./comp/MagicTouch/MagicTouchGame";
 function App() {
+  const [loading, setLoading] = useState(true)
+  const spinner = document.getElementById("spinner");
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = "none";
+      setLoading(false)
+    }, 1000)
+  }
   return (
+    !loading &&
     <div className="App">
       <Helmet>
         <meta charSet="utf-8" />
         <title>AG Gaming</title>
-        <link rel="canonical" href="http://example.com/example" />
       </Helmet>
       <Header />
       <HeroSection />
       <GameList />
-      <TeamInfo />
       <GameAbout />
+      <TeamInfo />
       <Footer />
       <Routes>
         <Route path="/" element={<HomePage />} />

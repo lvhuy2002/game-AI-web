@@ -10,69 +10,72 @@
 </head>
 <body>
     <div class = "tower-defence">
-        <div class = "menu">
+        <div class="game-wrapper">
+            <div class = "menu">
             
-            <div class="container-button">
-                <div class="button-start button">
-                    <h1 id="start">START</h1>
+                <div class="container-button">
+                    <div class="button-start button">
+                        <h1 id="start">START</h1>
+                    </div>
+                    <div class="button-tutorial button">
+                        <h1 id="tutorial">TUTORIAL</h1>
+                    </div>
+                    <div class="button-highScore button">
+                        <h1 id="highScore">HIGH SCORE</h1>
+                    </div>
                 </div>
-                <div class="button-tutorial button">
-                    <h1 id="tutorial">TUTORIAL</h1>
-                </div>
-                <div class="button-highScore button">
-                    <h1 id="highScore">HIGH SCORE</h1>
+                <div class="high-score">
+                    <div class = "list-score">
+                        <div class = "top">
+                            <h1 class = "topID">Top 1:</h1>
+                            <h1 class = "top1 topScore"></h1>
+                        </div>
+                        <div class = "top">
+                            <h1 class = "topID">Top 2:</h1>
+                            <h1 class = "top2 topScore"></h1>
+                        </div>
+                        <div class = "top">
+                            <h1 class = "topID">Top 3:</h1>
+                            <h1 class = "top3 topScore"></h1>
+                        </div>
+                        <div class = "top">
+                            <h1 class = "topID">Top 4:</h1>
+                            <h1 class = "top4 topScore"></h1>
+                        </div>
+                        <div class = "top">
+                            <h1 class = "topID">Top 5:</h1>
+                            <h1 class = "top5 topScore"></h1>
+                        </div>
+                        <div class = "button-back"><h2>BACK</h2></div>
+                    </div>
                 </div>
             </div>
-            <div class="high-score">
-                <div class = "list-score">
-                    <div class = "top">
-                        <h1 class = "topID">Top 1:</h1>
-                        <h1 class = "top1 topScore"></h1>
-                    </div>
-                    <div class = "top">
-                        <h1 class = "topID">Top 2:</h1>
-                        <h1 class = "top2 topScore"></h1>
-                    </div>
-                    <div class = "top">
-                        <h1 class = "topID">Top 3:</h1>
-                        <h1 class = "top3 topScore"></h1>
-                    </div>
-                    <div class = "top">
-                        <h1 class = "topID">Top 4:</h1>
-                        <h1 class = "top4 topScore"></h1>
-                    </div>
-                    <div class = "top">
-                        <h1 class = "topID">Top 5:</h1>
-                        <h1 class = "top5 topScore"></h1>
-                    </div>
-                    <div class = "button-back"><h2>BACK</h2></div>
+    
+            <div class = "game">
+                <canvas id="canvas1" width="1200px" height="300px"></canvas>
+                <div>
+                    <canvas id="canvas2"></canvas>
+                    <canvas id="canvas2-resize" width="28" height="28"></canvas>
                 </div>
+            
+                <img id="player" src="./res/Metal knight on air (64x64).png" alt="player image">
+                <img id="explosion" src="./res/Explosion64x64.png" alt="player image">
+                <img id="bg" src="./res/playing/background.png" alt="bg image">
+                <img id="balloon" src="./res/balloon sprite.png" alt="balloon image">
+    
+                <div class = "lose-board">
+                    <h1 id = "text-lose-board">YOUR SCORE:</h1>
+                    <h1 id = "result"></h1>
+                    <div id = "replay-button"></div>
+                    <div id = "home-button-lose-board"></div>
+                </div>
+                <div class = "pause-button"></div>
+                <div class = "unpause-button"></div>
+                <div class = "sound-button"></div>
+                <div class = "mute-button"></div>
             </div>
         </div>
-
-        <div class = "game">
-            <canvas id="canvas1"></canvas>
-            <div>
-                <canvas id="canvas2"></canvas>
-                <canvas id="canvas2-resize" width="28" height="28"></canvas>
-            </div>
         
-            <img id="player" src="./res/Metal knight on air (64x64).png" alt="player image">
-            <img id="explosion" src="./res/Explosion64x64.png" alt="player image">
-            <img id="bg" src="./res/playing/background.png" alt="bg image">
-            <img id="balloon" src="./res/balloon sprite.png" alt="balloon image">
-
-            <div class = "lose-board">
-                <h1 id = "text-lose-board">YOUR SCORE:</h1>
-                <h1 id = "result"></h1>
-                <div id = "replay-button"></div>
-                <div id = "home-button-lose-board"></div>
-            </div>
-            <div class = "pause-button"></div>
-            <div class = "unpause-button"></div>
-            <div class = "sound-button"></div>
-            <div class = "mute-button"></div>
-        </div>
 
     <script src = "https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
     <script type="module" src="./System/main.js"></script>

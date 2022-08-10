@@ -41,7 +41,7 @@ export default function Header() {
         </HeaderSocial>
 
         <HeaderMenu>
-          <a href="">
+          <a href="/">
             <img className="web-logo" src={logo} alt="logo-AI"></img>
           </a>
 

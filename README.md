@@ -44,7 +44,6 @@ Make sure you have installed the lastest version of ReactJS and NodeJS.
      React: https://reactjs.org/
      NodeJS: https://nodejs.org/en/about/
      TensorFlow: https://www.tensorflow.org/resources/learn-ml
-
-    If you have any feedback, please contact 20020202@vnu.edu.vn.
+#### If you have any feedback, please contact 20020202@vnu.edu.vn.
 
 Copyright © AG-Gaming - 2022. All Rights Reserved

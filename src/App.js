@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/tower_defence" element={<TowerDefence />} />
           <Route path="/tower_defence_tutorial" element={<Tutorial />} />
-          <Route path="/precdict_face_expression" element={<PredictFaceExpression/>} />
+          <Route path="/predict_face_expression" element={<PredictFaceExpression/>} />
         </Routes>
         <Footer />
       </div>

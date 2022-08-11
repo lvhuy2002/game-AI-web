@@ -39,6 +39,11 @@ Make sure you have installed the lastest version of ReactJS and NodeJS.
 #### Enjoy this game! Thanks for your patience❤️
 
 ## This project is inspired by the game Magic Touch and Face Dance Challenge.
+## Related Link
+     Model: https://github.com/huynhspm/ProjectDL
+     React: https://reactjs.org/
+     NodeJS: https://nodejs.org/en/about/
+     TensorFlow: https://www.tensorflow.org/resources/learn-ml
 
     If you have any feedback, please contact 20020202@vnu.edu.vn.
 

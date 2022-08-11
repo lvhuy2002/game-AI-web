@@ -4,6 +4,8 @@
 
 AG Gaming is a project founded by a team of 5 members who are students of the University of Technology - VNU. Conceived since 2020, AG Gaming has now been officially built and achieved certain successes.
 
+    Watch demo on heroku: https://ag-gaming.herokuapp.com/
+
 ### What's inside AG team?
 
 - Trịnh Ngọc Huỳnh (Model)
@@ -40,11 +42,11 @@ Make sure you have installed the lastest version of ReactJS and NodeJS.
 
 ## This project is inspired by the game Magic Touch and Face Dance Challenge.
 ## 3. Related Link 🕹️
-    View Demo App: https://ag-gaming.herokuapp.com/
      Model: https://github.com/huynhspm/ProjectDL
      React: https://reactjs.org/
      NodeJS: https://nodejs.org/en/about/
      TensorFlow: https://www.tensorflow.org/resources/learn-ml
+     Heroku: https://www.heroku.com/
 #### If you have any feedback, please contact 20020054@vnu.edu.vn
 
 Copyright © AG-Gaming - 2022. All Rights Reserved

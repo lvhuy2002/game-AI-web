@@ -3,6 +3,7 @@ import styled from "styled-components";
 import styles from "./GameAbout.module.css";
 import sideBg from "../../img/razer.jpg";
 import towerDefence from "../../img/background.png";
+import facial from "../../img/game-background/facial.png"
 import arrow from "../../img/icons/double-arrow.png";
 import { Link } from "react-router-dom";
 import { Link as scroll } from "react-scroll";
@@ -63,8 +64,9 @@ export default function GameAbout() {
                 style={{
                   boxShadow:
                     "0 0 10px rgba(122, 153, 255, 0.5), 10px 10px 0 rgba(0, 0, 0, 0.4)",
+                    width: "520px"
                 }}
-                src={towerDefence}
+                src={facial}
                 alt="Tower Defense"
               ></img>
             </AboutRight>
